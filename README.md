@@ -18,27 +18,27 @@ This repository contains the full machine learning training pipeline, the model 
 
 ## 📊 Dataset & Spatial Distribution
 
-We collected and open-sourced a high-resolution dataset containing **2,816 images (~14.3 GB)** across the Penn engineering quad. 
+A high-resolution dataset containing **935 images (~14.3 GB)** across the Penn engineering quad was collected. 
 
 ### Data Collection Protocol
 * **Perspective Diversity:** 8 photos taken per fixed point at $45^\circ$ intervals in portrait orientation.
 * **Ground Truth:** Precision GPS labels extracted directly from raw EXIF image metadata.
 * **Augmentation Split:** Supplemented by course-provided public data for a total training footprint:
 
-| Split | Images | Source |
-| :--- | :--- | :--- |
-| **Train** | 5,317 | Own collection + course-provided public |
-| **Validation** | 1,050 | Own collection + course-provided public |
-| **Test (Hidden)** | 681 | Course-provided hidden |
+| Split | Images |
+| :--- | :--- |
+| **Train** | 700 | 
+| **Validation** | 118 | 
+| **Test (Hidden)** | 117 |
 
-> **Dataset Availability:** The full compiled dataset can be found publicly on Hugging Face at [`gracech1/combined-penn-engineering-geo-location`](https://huggingface.co/datasets/gracech1/combined-penn-engineering-geo-location).
+> **Dataset Availability:** The full compiled dataset can be found publicly on Hugging Face at [`EmilK5/penn-engineering-geo-location`](https://huggingface.co/datasets/EmilK5/penn-engineering-geo-location)).
 
 ---
 
 ## 🛠️ Model Architecture & Training
 
 ### Regression Head Pipeline
-The default classification layer of EfficientNet-B0 is swapped for a deeper, gradient-stable head featuring skip connections:
+The default classification layer of EfficientNet-B0 is swapped for a deeper head featuring skip connections:
 $$\text{Dropout}(0.3) \rightarrow \text{FC}(1280 \rightarrow 512) \rightarrow \text{BN} + \text{GELU} \rightarrow \text{ResidualBlock}(512) \rightarrow \text{FC}(512 \rightarrow 128) \rightarrow \text{GELU} \rightarrow \text{Dropout}(0.1) \rightarrow \text{FC}(128 \rightarrow 2)$$
 
 ### Optimization Logic
@@ -51,13 +51,11 @@ $$\text{Dropout}(0.3) \rightarrow \text{FC}(1280 \rightarrow 512) \rightarrow \t
 
 ## 📈 Results & Performance
 
-| Configuration | Val Distance (m) | Test Haversine (m) ↓ |
+| Configuration | Val Distance (m) | 
 | :--- | :--- | :--- |
-| **Baseline (ResNet-18, MSE, raw lat/lon)** | 88.37m | — |
-| **EfficientNet-B0 (AdamW only)** | 34.38m | — |
-| **EfficientNet-B0 + SWATS (Final Model)** | **29.63m** | **60.37m** |
-
-Our final SWATS-optimized pipeline secured **Rank 10** on the official project leaderboard.
+| **Baseline (ResNet-18, MSE, raw lat/lon)** | 88.37m |
+| **EfficientNet-B0 (AdamW only)** | 34.38m |
+| **EfficientNet-B0 + SWATS (Final Model)** | **29.63m** |
 
 ---
 
@@ -79,10 +77,3 @@ Our final SWATS-optimized pipeline secured **Rank 10** on the official project l
    python app.py
    ```
    Navigate to the local URL (typically `http://127.0.0.1:7860`) generated in your terminal to start predicting locations interactively!
-
----
-
-## 👥 Team Members & Contributions
-* **Emil Kielar:** Data collection, exploratory data analysis, model design, model training, and report writing.
-* **Grace Chi:** Data collection, web application development, model training, and report writing.
-* **Darren Weng:** Data collection, report writing, and demo script creation.
