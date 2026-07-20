@@ -13,19 +13,17 @@ from PIL import ExifTags, Image, ImageOps, UnidentifiedImageError
 
 
 # Configure this to point at the checkpoint you want to test.
-MODEL_CHECKPOINT = "final_224_model.pt"
+MODEL_CHECKPOINT = "checkpoints/final_224_model.pt"
 
 # Use the current model architecture/export wrapper.
-MODEL_FILE_CANDIDATES = ("model.py",)
+MODEL_FILE_CANDIDATES = ("src/model.py",)
 
 # These names match the current model.py. If your architecture file changes,
-# this is the main place to adjust the factory/class names.
 MODEL_FACTORY_NAME = "get_model"
 MODEL_CLASS_NAME = "Model"
 UTM_ZONE = 18
 
-# preprocess.py currently exposes prepare_data(csv_path). If you later add a
-# single-image function, add its name here and it will be used automatically.
+
 PREPROCESS_SINGLE_IMAGE_FUNCTIONS = (
     "preprocess_image",
     "preprocess_pil_image",
@@ -258,7 +256,7 @@ def load_model():
 
 
 def preprocess_image(image_path: str, ground_truth: Optional[Tuple[float, float]]):
-    preprocess_path = project_path("preprocess.py")
+    preprocess_path = project_path("src/preprocess.py")
     if not os.path.exists(preprocess_path):
         raise FileNotFoundError("preprocess.py was not found in the project directory.")
 
@@ -740,7 +738,7 @@ with gr.Blocks(title="img2gps Tester", head=CONFETTI_HEAD) as demo:
             )
             confetti_shape = gr.Textbox(
                 label="Emoji",
-                value="🥟",
+                value="📍",
                 placeholder="Try 🎉, ⭐, 📍, or ✨",
                 max_lines=1,
             )
