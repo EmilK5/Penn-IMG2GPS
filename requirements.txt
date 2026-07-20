@@ -1,0 +1,17 @@
+# Recommended conda environment:
+#   conda create -n img2gps python=3.10
+#   conda activate img2gps
+#   pip install -r requirements.txt
+
+torch
+torchvision
+
+gradio
+folium
+pyproj
+
+pandas
+numpy
+
+Pillow
+pillow-heif
