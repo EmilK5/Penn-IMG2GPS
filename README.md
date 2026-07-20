@@ -31,7 +31,7 @@ A high-resolution dataset containing **935 images (~14.3 GB)** across the Penn e
 | **Validation** | 118 | 
 | **Test (Hidden)** | 117 |
 
-> **Dataset Availability:** The full compiled dataset can be found publicly on Hugging Face at [`EmilK5/penn-engineering-geo-location`](https://huggingface.co/datasets/EmilK5/penn-engineering-geo-location)).
+> The full dataset can be found on Hugging Face at [`EmilK5/penn-engineering-geo-location`](https://huggingface.co/datasets/EmilK5/penn-engineering-geo-location)).
 
 ---
 
@@ -52,7 +52,7 @@ $$\text{Dropout}(0.3) \rightarrow \text{FC}(1280 \rightarrow 512) \rightarrow \t
 ## 📈 Results & Performance
 
 | Configuration | Val Distance (m) | 
-| :--- | :--- | :--- |
+| :--- | :--- |
 | **Baseline (ResNet-18, MSE, raw lat/lon)** | 88.37m |
 | **EfficientNet-B0 (AdamW only)** | 34.38m |
 | **EfficientNet-B0 + SWATS (Final Model)** | **29.63m** |
