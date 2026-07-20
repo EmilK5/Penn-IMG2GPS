@@ -30,7 +30,7 @@ I collected and curated **935 high-resolution geotagged images** across Penn's E
 - **Perspective diversity:** Eight photographs were captured at approximately 45-degree intervals from each collection point.
 - **Geographic labels:** Latitude and longitude were extracted automatically from smartphone EXIF metadata.
 - **Capture format:** Images were captured in portrait orientation without digital zoom.
-- **Geographic scope:** Collection was limited to the area bounded approximately by 33rd-34th Streets and Walnut-Spruce Streets.
+- **Geographic scope:** Collection was limited to the area bounded approximately by 33rd-34th Streets and Walnut-Spruce Streets in Philadelphia, PA.
 
 | Split | Images |
 |---|---:|
