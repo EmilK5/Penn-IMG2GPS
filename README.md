@@ -1,6 +1,6 @@
 # Img2GPS: Penn Engineering Quad Geolocation
 
-A supervised computer vision pipeline designed to predict exact GPS coordinates from raw images taken within the University of Pennsylvania's engineering quad (bounded by 33rd-34th Streets and Walnut-Spruce Streets). Given a raw image, the model localizes where the photo was taken to within roughly 30 meters on average.
+A supervised computer vision pipeline designed to predict exact GPS coordinates from raw images taken within the University of Pennsylvania's engineering quad (bounded by 33rd-34th Streets and Walnut-Spruce Streets). Given a raw image, the model localizes where the photo with up to 30 metres of error.
 
 This repository contains the full machine learning training pipeline, the model architecture, and an interactive Gradio web application for real-time inference.
 
